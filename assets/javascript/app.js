@@ -10,13 +10,8 @@
 $(document).ready(function() 
 {
 	var questions = [];
-	var answers = [];
 
 	var currentQuestion = 0;
-
-	var correct = 0;
-
-	var wrong = 0;
 
 	var questionDiv = $("#questionDiv");
 	questionDiv.hide();
@@ -25,7 +20,18 @@ $(document).ready(function()
 	answerDiv.hide();
 
 	var resultsDiv = $("#resultsDiv");
-	resultsDiv.hide();
+	//resultsDiv.hide();
+
+	var timerDiv = $("#timerDiv");
+
+	var restartDiv = $("#restartDiv");
+	restartDiv.hide();
+
+	var intervalId;
+
+	var timerRunning = false;
+
+	var secondCounter = 10;
 
 
 	$("#btn-start").on("click", function() 
@@ -34,11 +40,7 @@ $(document).ready(function()
 
 		questions = loadQuestions();
 
-		getQuestion(currentQuestion);
-
-		// https://www.w3schools.com/jsref/met_win_setinterval.asp
-		// every 10 seconds  call getQuestion
-		// setInterval(getQuestion, 10000);
+		getQuestion();
 
 	});
 
@@ -47,15 +49,10 @@ $(document).ready(function()
 	{	
 		console.log(this.value);
 
-		// clearInterval(myInterval);
-		if(currentQuestion < questions.length)
-		{
-			logAnswer(this.value);
-		}
-		else
-		{
-			console.log("NO MORE QUESTIONS");
-		}
+		stopTimer();
+
+		logAnswer(this.value);
+  		
 	});
 
 
@@ -63,14 +60,10 @@ $(document).ready(function()
 	{	
 		console.log(this.value);
 
-		if(currentQuestion < questions.length)
-		{
-			logAnswer(this.value);
-		}
-		else
-		{
-			console.log("NO MORE QUESTIONS");
-		}
+		stopTimer();
+
+		logAnswer(this.value);
+  		
 	});
 
 
@@ -78,15 +71,10 @@ $(document).ready(function()
 	{	
 		console.log(this.value);
 
-		if(currentQuestion < questions.length)
-		{
-			logAnswer(this.value);
-		}
-		else
-		{
-			console.log("NO MORE QUESTIONS");
-		}
-		
+		stopTimer();
+
+		logAnswer(this.value);
+  		
 	});
 
 
@@ -94,97 +82,191 @@ $(document).ready(function()
 	{	
 		console.log(this.value);
 
-		if(currentQuestion < questions.length)
-		{
-			logAnswer(this.value);
-		}
-		else
-		{
-			console.log("NO MORE QUESTIONS");
-		}
+		stopTimer();
+
+		logAnswer(this.value);
+  		
 	});
 
 
-	function getQuestion(arrayIndex)
+	$("#btn-restart").on("click", function() 
+	{	
+		console.log(this.value);
+
+		restartDiv.hide();
+
+		questions = [];
+
+		currentQuestion = 0;
+
+		// var questionDiv = $("#questionDiv");
+		// questionDiv.hide();
+
+		// var answerDiv = $("#answerDiv");
+		// answerDiv.hide();
+
+		// var resultsDiv = $("#resultsDiv");
+		// resultsDiv.hide();
+
+		// var timerDiv = $("#timerDiv");
+
+		// var restartDiv = $("#restartDiv");
+		// restartDiv.hide();
+
+		timerRunning = false;
+
+		secondCounter = 10;
+
+		questions = loadQuestions();
+
+		getQuestion();
+	});
+
+
+	function stopTimer() 
 	{
-		//start new interval here?
-		
-		//put question on screen
-		questionDiv.text(questions[arrayIndex].question);
+		clearInterval(intervalId);
 
-		questionDiv.show();
+		timerRunning = false;
 
-		$("#btn-answerA").text(questions[arrayIndex].answers[0]);
-		$("#btn-answerB").text(questions[arrayIndex].answers[1]);
-		$("#btn-answerC").text(questions[arrayIndex].answers[2]);
-		$("#btn-answerD").text(questions[arrayIndex].answers[3]);
+		secondCounter = 10;
 
-		answerDiv.show();
+		timerDiv.text("10");
+		timerDiv.hide();
+	}
+
+
+	function startTimer()
+	{
+  		if (!timerRunning)
+  		{	
+  			timerDiv.show();
+
+    		intervalId = setInterval(countTime,1000);
+
+    		clockRunning = true;
+    	}
+  	}
+
+
+  	function countTime() 
+  	{
+  		secondCounter--;
+
+  		timerDiv.text(secondCounter);
+
+  		if (secondCounter === 0)
+  		{
+  			/*
+				If the player runs out of time, 
+					tell the player that time's up 
+					and display the correct answer. 
+					Wait a few seconds, then show the next question.
+			*/
+
+			stopTimer();
+
+			resultsDiv.text("TIME'S UP");
+
+			resultsDiv.append(	"<br>" + "The correct answer is: " + "<br>" +
+								questions[currentQuestion].answers[questions[currentQuestion].correctAnswer]);
+
+			currentQuestion++;
+
+			setTimeout(getQuestion, 5000);
+  		}
+  	}
+
+
+	function getQuestion()
+	{
+		resultsDiv.text("");
+
+		timerDiv.text("10");
+		timerDiv.show();
+
+		if(currentQuestion < questions.length)
+		{
+			questionDiv.text(questions[currentQuestion].question);
+
+			questionDiv.show();
+
+			$("#btn-answerA").text(questions[currentQuestion].answers[0]);
+
+			$("#btn-answerB").text(questions[currentQuestion].answers[1]);
+
+			$("#btn-answerC").text(questions[currentQuestion].answers[2]);
+
+			$("#btn-answerD").text(questions[currentQuestion].answers[3]);
+
+			answerDiv.show();
+
+			startTimer();
+		}
+		else
+		{
+			console.log("HAVE ANSWERED ALL QUESTIONS");
+
+			gradeQuiz();
+		}
 	}
 
 
 	function logAnswer(theAnswer)
 	{
-		// put selected answer in question object
-		// questions[currentQuestion].selectedAnswer = theAnswer.toUpperCase();
-
-
 		switch(theAnswer.toUpperCase())
 		{
   			case "A":
     			questions[currentQuestion].selectedAnswer = 0;
    				break;
+
   			case "B":
     			questions[currentQuestion].selectedAnswer = 1;
     			break;
+
   			case "C":
     			questions[currentQuestion].selectedAnswer = 2;
     			break;
+
   			case "D":
     			questions[currentQuestion].selectedAnswer = 3;
     			break;
+
   			default:
     			console.log("logAnswer(" + theAnswer + "): Unexpected argument.");
 		}
 
-
-
-
 		if(questions[currentQuestion].selectedAnswer === questions[currentQuestion].correctAnswer)
 		{
 			/*
-				If the player selects the correct answer, show a screen congratulating them for choosing the right option. 
-				After a few seconds, display the next question -- do this without user input. 
+				If the player selects the correct answer, 
+					show a screen congratulating them for choosing the right option. 
+					After a few seconds, display the next question -- do this without user input. 
 			*/
+
+			resultsDiv.text("YOU GOT IT!");
+
+			currentQuestion++;
+
+			setTimeout(getQuestion, 5000);
 		}
 		else
 		{
 			/*
-				If the player chooses the wrong answer, tell the player they selected the wrong option and then display the correct answer. 
-				Wait a few seconds, then show the next question.
+				If the player chooses the wrong answer, 
+					tell the player they selected the wrong option 
+					and then display the correct answer. 
+					Wait a few seconds, then show the next question.
 			*/
-		}
 
-		/*
-			If the player runs out of time, tell the player that time's up and display the correct answer. 
-			Wait a few seconds, then show the next question.
-		*/
+			resultsDiv.text("YOU DIDN'T GET IT!");
 
-		
+			resultsDiv.append(	"<br>" + "The correct answer is: " + "<br>" +
+								questions[currentQuestion].answers[questions[currentQuestion].correctAnswer]);
 
+			currentQuestion++;
 
-
-		currentQuestion++;
-
-		if(currentQuestion < questions.length)
-		{
-			// move to next question
-			getQuestion(currentQuestion);
-		}
-		else
-		{
-			console.log("HAVE ANSWERED ALL QUESTIONS");
-			gradeQuiz();
+			setTimeout(getQuestion, 5000);
 		}
 	}
 
@@ -193,8 +275,13 @@ $(document).ready(function()
 	{
 
 		/*
-			On the final screen, show the number of correct answers, incorrect answers, and an option to restart the game (without reloading the page).
+			On the final screen, 
+				show the number of correct answers, 
+				incorrect answers, 
+				and an option to restart the game (without reloading the page).
 		*/
+		
+		timerDiv.hide();
 
 		questionDiv.hide();
 
@@ -202,13 +289,45 @@ $(document).ready(function()
 
 		resultsDiv.show();
 
+		var numRight = 0;
+		var numWrong = 0;
+		var total = questions.length;
+
 		for (var i = 0; i < questions.length; i++)
 		{
 			var qNum = i+1;
-			resultsDiv.append(	"<div>" + "Question " + qNum + ": " + questions[i].question + "<br>" + 
-								"You answered: " + questions[i].answers[questions[i].selectedAnswer] + "<br>" + 
-								"Correct answer: " +  questions[i].answers[questions[i].correctAnswer]  + "</div>");
+
+			if(questions[i].selectedAnswer === questions[i].correctAnswer)
+			{
+				numRight++;
+			}
+			else
+			{
+				numWrong++;
+			}
+
+			if(questions[i].selectedAnswer > -1 )
+			{
+				resultsDiv.append(	"<div>" + "Question " + qNum + ": " + questions[i].question + "<br>" + 
+									"You answered: " + questions[i].answers[questions[i].selectedAnswer] + "<br>" + 
+									"Correct answer: " +  questions[i].answers[questions[i].correctAnswer]  + "</div>");
+			}
+			else
+			{
+				resultsDiv.append(	"<div>" + "Question " + qNum + ": " + questions[i].question + "<br>" + 
+									"You did not answer." + "<br>" + 
+									"Correct answer: " +  questions[i].answers[questions[i].correctAnswer]  + "</div>");
+			}
 		}
+
+		resultsDiv.append(	"<div>" + "Total Questions: " + total + "<br>" + 
+							"Correct Answers: " + numRight + "<br>" + 
+							"Wrong Answers: " + numRight + "</div>");
+
+		// DO HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		// ASK TO RESTART QUIZ
+
+		restartDiv.show();
 	}
 
 
@@ -218,7 +337,10 @@ $(document).ready(function()
 
 		var question01 =  {
 			question: "Question 1",
-			answers: ["Answer A","Answer B","Answer C","Answer D"],
+			answers: [	"Answer A",
+						"Answer B",
+						"Answer C",
+						"Answer D"],
 			correctAnswer: 0,
 			selectedAnswer: -1};
 
@@ -226,7 +348,10 @@ $(document).ready(function()
 
 		var question02 =  {
 			question: "Question 2",
-			answers: ["Answer A","Answer B","Answer C","Answer D"],
+			answers: [	"Answer A",
+						"Answer B",
+						"Answer C",
+						"Answer D"],
 			correctAnswer: 1,
 			selectedAnswer: -1};
 
@@ -234,7 +359,10 @@ $(document).ready(function()
 
 		var question03 =  {
 			question: "Question 3",
-			answers: ["Answer A","Answer B","Answer C","Answer D"],
+			answers: [	"Answer A",
+						"Answer B",
+						"Answer C",
+						"Answer D"],
 			correctAnswer: 2,
 			selectedAnswer: -1};
 
@@ -242,7 +370,10 @@ $(document).ready(function()
 
 		var question04 =  {
 			question: "Question 4",
-			answers: ["Answer A","Answer B","Answer C","Answer D"],
+			answers: [	"Answer A",
+						"Answer B",
+						"Answer C",
+						"Answer D"],
 			correctAnswer: 3,
 			selectedAnswer: -1};
 
@@ -310,15 +441,15 @@ $(document).ready(function()
 			15-17 Night Market
 			25 Feast of the Winter Star
 		Birthdays
-			01	Krobus Icon.png Krobus
-			03	Linus Icon.png Linus
-			07	Caroline Icon.png Caroline
-			10	Sebastian Icon.png Sebastian
-			14	Harvey Icon.png Harvey
-			17	Wizard Icon.png Wizard
-			20	Evelyn Icon.png Evelyn
-			23	Leah Icon.png Leah
-			26	Clint Icon.png Clint
+			01	Krobus
+			03	Linus
+			07	Caroline 
+			10	Sebastian 
+			14	Harvey 
+			17	Wizard 
+			20	Evelyn 
+			23	Leah 
+			26	Clint 
 	*/
 
 	/* loved gifts

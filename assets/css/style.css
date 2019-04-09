@@ -3,6 +3,13 @@ body{
 	background-image: url("../images/wallpaper.png");
 }
 
+#mainDiv{
+	padding: 5px;
+}
+
+#stardewLogo{
+	margin-top: 20px;
+}
 
 #audioButton{
 	background-color: #dc3545; /*danger red*/
@@ -11,11 +18,9 @@ body{
 	padding: 5px;
 }
 
-
 #topRow{
 	min-height: 10vh;
 }	
-
 
 #mainDiv{
 	margin-top: 10vh;
@@ -25,10 +30,22 @@ body{
 	overflow: hidden;
 }
 
-
 .answerButton{
 	background-color: #dc3545; /*danger red*/
 	border: 1px solid #dc3545; /*danger red*/
 	margin: 2px;
 	padding: 5px;
 }
+
+#restartDiv{
+	display: none;
+}
+
+#btn-restart{
+	background-color: #28a745; /*danger red*/
+	border: 1px solid #28a745; /*danger red*/
+	margin: 2px;
+	padding: 5px;
+}
+
+
