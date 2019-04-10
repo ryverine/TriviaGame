@@ -177,7 +177,7 @@ $(document).ready(function()
 
 			currentQuestion++;
 
-			setTimeout(getQuestion, 5000);
+			setTimeout(getQuestion, 3000);
   		}
   	}
 
@@ -248,7 +248,7 @@ $(document).ready(function()
 
 			currentQuestion++;
 
-			setTimeout(getQuestion, 5000);
+			setTimeout(getQuestion, 3000);
 		}
 		else
 		{
@@ -259,7 +259,7 @@ $(document).ready(function()
 
 			currentQuestion++;
 
-			setTimeout(getQuestion, 5000);
+			setTimeout(getQuestion, 3000);
 		}
 	}
 
