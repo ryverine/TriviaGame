@@ -6,6 +6,12 @@
 // https://stardewvalleywiki.com/List_of_All_Gifts
 // https://stardewvalleywiki.com/Calendar
 
+// https://www.reddit.com/r/StardewValley/comments/4dtgp7/by_popular_request_a_stardew_valley_font_for_your/
+// https://www.dropbox.com/sh/g1law0qmnf6pjwr/AACummg5fZJ5JIF4ReeRDxJia?dl=0
+
+
+// https://stardewvalley.fandom.com/wiki/Villager_marriage_candidates
+
 
 $(document).ready(function() 
 {
@@ -156,20 +162,18 @@ $(document).ready(function()
   		timerDiv.text(secondCounter);
 
   		if (secondCounter === 0)
-  		{
-  			/*
-				If the player runs out of time, 
-					tell the player that time's up 
-					and display the correct answer. 
-					Wait a few seconds, then show the next question.
-			*/
-
+  		{	
 			stopTimer();
 
-			resultsDiv.text("TIME'S UP");
+			answerDiv.hide();
 
-			resultsDiv.append(	"<br>" + "The correct answer is: " + "<br>" +
-								questions[currentQuestion].answers[questions[currentQuestion].correctAnswer]);
+			resultsDiv.html("<h3>" + "TIME'S UP" + "</h3>");
+
+			resultsDiv.append(	"<br>" + "The correct answer is: " + "<br>" + "<h4>" +
+								questions[currentQuestion].answers[questions[currentQuestion].correctAnswer] + 
+								"</h4>");
+
+			// put image here?
 
 			currentQuestion++;
 
@@ -181,9 +185,9 @@ $(document).ready(function()
 	function getQuestion()
 	{
 		resultsDiv.text("");
-
 		timerDiv.text("10");
 		timerDiv.show();
+		answerDiv.show();
 
 		if(currentQuestion < questions.length)
 		{
@@ -214,6 +218,8 @@ $(document).ready(function()
 
 	function logAnswer(theAnswer)
 	{
+		answerDiv.hide();
+
 		switch(theAnswer.toUpperCase())
 		{
   			case "A":
@@ -238,12 +244,6 @@ $(document).ready(function()
 
 		if(questions[currentQuestion].selectedAnswer === questions[currentQuestion].correctAnswer)
 		{
-			/*
-				If the player selects the correct answer, 
-					show a screen congratulating them for choosing the right option. 
-					After a few seconds, display the next question -- do this without user input. 
-			*/
-
 			resultsDiv.text("YOU GOT IT!");
 
 			currentQuestion++;
@@ -252,13 +252,6 @@ $(document).ready(function()
 		}
 		else
 		{
-			/*
-				If the player chooses the wrong answer, 
-					tell the player they selected the wrong option 
-					and then display the correct answer. 
-					Wait a few seconds, then show the next question.
-			*/
-
 			resultsDiv.text("YOU DIDN'T GET IT!");
 
 			resultsDiv.append(	"<br>" + "The correct answer is: " + "<br>" +
@@ -273,14 +266,6 @@ $(document).ready(function()
 
 	function gradeQuiz()
 	{
-
-		/*
-			On the final screen, 
-				show the number of correct answers, 
-				incorrect answers, 
-				and an option to restart the game (without reloading the page).
-		*/
-		
 		timerDiv.hide();
 
 		questionDiv.hide();
@@ -308,24 +293,21 @@ $(document).ready(function()
 
 			if(questions[i].selectedAnswer > -1 )
 			{
-				resultsDiv.append(	"<div>" + "Question " + qNum + ": " + questions[i].question + "<br>" + 
+				resultsDiv.append(	"<div class='resultData'>" + "Question " + qNum + ": " + questions[i].question + "<br>" + 
 									"You answered: " + questions[i].answers[questions[i].selectedAnswer] + "<br>" + 
 									"Correct answer: " +  questions[i].answers[questions[i].correctAnswer]  + "</div>");
 			}
 			else
 			{
-				resultsDiv.append(	"<div>" + "Question " + qNum + ": " + questions[i].question + "<br>" + 
+				resultsDiv.append(	"<div class='resultData'>" + "Question " + qNum + ": " + questions[i].question + "<br>" + 
 									"You did not answer." + "<br>" + 
 									"Correct answer: " +  questions[i].answers[questions[i].correctAnswer]  + "</div>");
 			}
 		}
 
-		resultsDiv.append(	"<div>" + "Total Questions: " + total + "<br>" + 
+		resultsDiv.append(	"<div class='resultData'>" + "Total Questions: " + total + "<br>" + 
 							"Correct Answers: " + numRight + "<br>" + 
-							"Wrong Answers: " + numRight + "</div>");
-
-		// DO HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		// ASK TO RESTART QUIZ
+							"Wrong Answers: " + numWrong + "</div>");
 
 		restartDiv.show();
 	}
@@ -334,6 +316,8 @@ $(document).ready(function()
 	function loadQuestions()
 	{
 		var questionList = [];
+
+		var finalQuestionList = [];
 
 		var question01 =  {
 			question: "Question 1",
@@ -379,10 +363,283 @@ $(document).ready(function()
 
 		questionList.push(question04);
 
-		return questionList;
+		// CODE TO PUT QUESTIONS IN RANDOM ORDER
+		var addToFinalQuestionList = false;
+
+		while(finalQuestionList.length < questionList.length)
+		{
+			var randomIndex = Math.floor((Math.random() * Math.floor(questionList.length)));
+
+			if(finalQuestionList.length < 1)
+			{
+				finalQuestionList.push(questionList[randomIndex]);
+			}
+			else
+			{
+				for(var i = 0; i < finalQuestionList.length; i++)
+				{
+					if(questionList[randomIndex].question === finalQuestionList[i].question)
+					{
+						addToFinalQuestionList = false;
+						break;
+					}
+					else
+					{
+						addToFinalQuestionList = true;
+					}
+				}
+
+				if(addToFinalQuestionList)
+				{
+					finalQuestionList.push(questionList[randomIndex]);
+				}
+			}
+		}
+		
+		return finalQuestionList;
 	}
 
-	// code here
+	// CREATE QUESTIONS
+	/*
+	-------
+	2 forageable
+	2 gifts
+	2 birthdays
+	2 fish
+	2 crops
+	-------
+	2 festivals
+	2 mining
+	2 dishes
+	2 bundles
+	2
+	-------
+
+
+		var question01 =  {
+			question: "When is Salmonberry season?",
+			answers: [	"Fall 8-11",
+						"Spring 15-18",
+						"Summer 12-14",
+						"Spring 5-8"],
+			correctAnswer: 1,
+			selectedAnswer: -1};
+
+		questionList.push(question01);
+
+		var question02 =  {
+			question: "When is Blackberry season?",
+			answers: [	"Spring 15-18"",
+						"Summer 12-14",
+						"Fall 10-14",
+						"Fall 8-11"],
+			correctAnswer: 3,
+			selectedAnswer: -1};
+
+		questionList.push(question02);
+
+		var question03 =  {
+			question: "Who loves to recieve a Golden Pumpkin as a gift?",
+			answers: [	"Abigail",
+						"Evelyn",
+						"Nobody",
+						"Everyone"],
+			correctAnswer: 3,
+			selectedAnswer: -1};
+
+		questionList.push(question03);
+
+		var question04 =  {
+			question: "Who will always appreciate a hot mug of joe?",
+			answers: [	"Clint",
+						"Leah",
+						"Harvey",
+						"Emily"],
+			correctAnswer: 2,
+			selectedAnswer: -1};
+
+		questionList.push(question04);
+
+		var question05 =  {
+			question: "When is Penny's birthday?",
+			answers: [	"Fall 02",
+						"Summer 10",
+						"Winter 23",
+						"Fall 05"],
+			correctAnswer: 0,
+			selectedAnswer: -1};
+
+		questionList.push(question05);
+
+		var question06 =  {
+			question: "When is Sebastian's birthday?",
+			answers: [	"Spring 02",
+						"Summer 10",
+						"Winter 10",
+						"Fall 05"],
+			correctAnswer: 2,
+			selectedAnswer: -1};
+
+		questionList.push(question06);
+
+		var question07 = {
+			question: "When is the best time to catch an octopus?",
+			answers: [	"Spring",
+						"Summer",
+						"Fall",
+						"Winter"],
+			correctAnswer: 1,
+			selectedAnswer: -1};
+
+		questionList.push(question07);
+
+		var question08 = {
+			question: "When is the best time to catch a perch?",
+			answers: [	"Spring",
+						"Summer",
+						"Fall",
+						"Winter"],
+			correctAnswer: 3,
+			selectedAnswer: -1};
+
+		questionList.push(question08);
+
+		var question09 = {
+			question: "When is the best time to grow garlic?",
+			answers: [	"Spring",
+						"Summer",
+						"Fall",
+						"Winter"],
+			correctAnswer: 0,
+			selectedAnswer: -1};
+
+		questionList.push(question09);
+
+		var question10 = {
+			question: "When is the best time to grow pomegranates?",
+			answers: [	"Spring",
+						"Summer",
+						"Fall",
+						"Winter"],
+			correctAnswer: 2,
+			selectedAnswer: -1};
+
+		questionList.push(question10);
+
+		var question11 = {
+			question: "When is the Flower Dance?",
+			answers: [	"Summer 05",
+						"Spring 24",
+						"Fall 21",
+						"Spring 13"],
+			correctAnswer: 1,
+			selectedAnswer: -1};
+
+		questionList.push(question11);
+
+		var question12 = {
+			question: "When does the Stardew Valley Fair occur?",
+			answers: [	"Spring 13",
+						"Summer 28",
+						"Fall 16",
+						"Winter 08"],
+			correctAnswer: 2,
+			selectedAnswer: -1};
+
+		questionList.push(question12);
+
+		var question13 = {
+			question: "Which of these foods will ehance your Mining level?",
+			answers: [	"Eggplant Parmesan",
+						"Cranberry Sauce",
+						"Maple Bar",
+						"All of the above"],
+			correctAnswer: 3,
+			selectedAnswer: -1};
+
+		questionList.push(question13);
+
+		var question14 = {
+			question: "You will gain access to the Quarry upon completion OF what Community Center room?",
+			answers: [	"Crafts Room",
+						"Pantry",
+						"Boiler Room",
+						"Vault"],
+			correctAnswer: 0,
+			selectedAnswer: -1};
+
+		questionList.push(question14);
+
+		var question15 = {
+			question: "What item is not needed for the Artisan Bundle?",
+			answers: [	"Jelly",
+						"Truffle Oil",
+						"Peach",
+						"Melon"],
+			correctAnswer: 3,
+			selectedAnswer: -1};
+
+		questionList.push(question15);
+
+		var question16 = {
+			question: "What item is needed for the Spring Crops Bundle?",
+			answers: [	"Garlic",
+						"Cauliflower",
+						"Kale",
+						"Hops"],
+			correctAnswer: 1,
+			selectedAnswer: -1};
+
+		questionList.push(question16);
+
+		var question17 = {
+			question: "What item is not needed for the Super Meal recipe?",
+			answers: [	"Bok Choy",
+						"Cranberries",
+						"Artichoke",
+						"Common Mushroom"],
+			correctAnswer: 3,
+			selectedAnswer: -1};
+
+		questionList.push(question17);
+
+		var question18 = {
+			question: "What fish do you need for the Fish Taco recipe?",
+			answers: [	"Rainbow Trout",
+						"Tuna",
+						"Salmon",
+						"Halibut"],
+			correctAnswer: 1,
+			selectedAnswer: -1};
+
+		questionList.push(question18);
+
+		var question19 = {
+			question: "Who is the local carpenter?",
+			answers: [	"Clint",
+						"Marnie",
+						"Robin",
+						"Pierre"],
+			correctAnswer: 2,
+			selectedAnswer: -1};
+
+		questionList.push(question19);
+
+		var question20 = {
+			question: "Who runs the Adventurer's Guild?",
+			answers: [	"Shane",
+						"Gus",
+						"Haley",
+						"Marlon"],
+			correctAnswer: 3,
+			selectedAnswer: -1};
+
+		questionList.push(question20);
+
+		
+
+
+	*/
 
 	/* Spring
 		Festivals

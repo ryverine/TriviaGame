@@ -3,12 +3,55 @@ body{
 	background-image: url("../images/wallpaper.png");
 }
 
-#mainDiv{
+
+.row{
+	margin: 0px;
+}
+
+.resultData{
 	padding: 5px;
+}
+/******* MAKE THIS MOBILE RESPONSIVE *********/
+
+/*
+success green
+#28a745
+#218850
+
+danger red
+#dc3545
+#c82333
+
+Primary Blue
+#007bff
+#0062cc
+
+warning yellow
+#ffc107
+*/
+
+#headerDiv{
+	margin: auto;
 }
 
 #stardewLogo{
 	margin-top: 20px;
+}
+
+#mainDiv{
+	padding: 5px;
+}
+
+#btn-start{
+	border: 5px solid #007bff;
+	margin: 2px;
+	padding: 5px;
+	font-weight: bold;
+}
+
+#btn-start:hover{
+	background-color: #007bff;
+	border-color: #0062cc;
 }
 
 #audioButton{
@@ -18,34 +61,56 @@ body{
 	padding: 5px;
 }
 
-#topRow{
-	min-height: 10vh;
-}	
+#innerDiv{
+	margin: auto;
+	padding: 10px;
+}
 
 #mainDiv{
-	margin-top: 10vh;
-	min-height: 80vh;
-	min-width: 50vh;
+	/*margin-top: 10vh;*/
+	margin: 20px auto 0px auto;
+	min-height: 60vh;
+	min-width: 90vh;
 	background-color: #ffc107; /*warning yellow*/
 	overflow: hidden;
 }
 
 .answerButton{
-	background-color: #dc3545; /*danger red*/
-	border: 1px solid #dc3545; /*danger red*/
+	background-color: #ffc107; 
+	border: 5px solid #dc3545;
 	margin: 2px;
 	padding: 5px;
+	font-weight: bold;
+}
+
+.answerButton:hover{
+	background-color: #ffc107; 
+	border-color: #c82333;
 }
 
 #restartDiv{
 	display: none;
+	margin: auto;
 }
 
 #btn-restart{
-	background-color: #28a745; /*danger red*/
-	border: 1px solid #28a745; /*danger red*/
+	border: 5px solid #28a745;
 	margin: 2px;
 	padding: 5px;
+	font-weight: bold;
 }
 
+#btn-restart:hover{
+	background-color: #28a745;
+	border-color: #218850;
+}
 
+#questionDiv{
+	margin: auto;
+	padding: 10px;
+}
+
+#resultsDiv{
+	margin: auto;
+	padding: 10px;
+}
