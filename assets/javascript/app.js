@@ -320,48 +320,228 @@ $(document).ready(function()
 		var finalQuestionList = [];
 
 		var question01 =  {
-			question: "Question 1",
-			answers: [	"Answer A",
-						"Answer B",
-						"Answer C",
-						"Answer D"],
-			correctAnswer: 0,
+			question: "When is Salmonberry season?",
+			answers: [	"Fall 8-11",
+						"Spring 15-18",
+						"Summer 12-14",
+						"Spring 5-8"],
+			correctAnswer: 1,
 			selectedAnswer: -1};
 
 		questionList.push(question01);
 
 		var question02 =  {
-			question: "Question 2",
-			answers: [	"Answer A",
-						"Answer B",
-						"Answer C",
-						"Answer D"],
-			correctAnswer: 1,
+			question: "When is Blackberry season?",
+			answers: [	"Spring 15-18",
+						"Summer 12-14",
+						"Fall 10-14",
+						"Fall 8-11"],
+			correctAnswer: 3,
 			selectedAnswer: -1};
 
 		questionList.push(question02);
 
 		var question03 =  {
-			question: "Question 3",
-			answers: [	"Answer A",
-						"Answer B",
-						"Answer C",
-						"Answer D"],
-			correctAnswer: 2,
+			question: "Who loves to recieve a Golden Pumpkin as a gift?",
+			answers: [	"Abigail",
+						"Evelyn",
+						"Nobody",
+						"Everyone"],
+			correctAnswer: 3,
 			selectedAnswer: -1};
 
 		questionList.push(question03);
 
 		var question04 =  {
-			question: "Question 4",
-			answers: [	"Answer A",
-						"Answer B",
-						"Answer C",
-						"Answer D"],
-			correctAnswer: 3,
+			question: "Who will always appreciate a hot mug of joe?",
+			answers: [	"Clint",
+						"Leah",
+						"Harvey",
+						"Emily"],
+			correctAnswer: 2,
 			selectedAnswer: -1};
 
 		questionList.push(question04);
+
+		var question05 =  {
+			question: "When is Penny's birthday?",
+			answers: [	"Fall 02",
+						"Summer 10",
+						"Winter 23",
+						"Fall 05"],
+			correctAnswer: 0,
+			selectedAnswer: -1};
+
+		questionList.push(question05);
+
+		var question06 =  {
+			question: "When is Sebastian's birthday?",
+			answers: [	"Spring 02",
+						"Summer 10",
+						"Winter 10",
+						"Fall 05"],
+			correctAnswer: 2,
+			selectedAnswer: -1};
+
+		questionList.push(question06);
+
+		var question07 = {
+			question: "When is the best time to catch an octopus?",
+			answers: [	"Spring",
+						"Summer",
+						"Fall",
+						"Winter"],
+			correctAnswer: 1,
+			selectedAnswer: -1};
+
+		questionList.push(question07);
+
+		var question08 = {
+			question: "When is the best time to catch a perch?",
+			answers: [	"Spring",
+						"Summer",
+						"Fall",
+						"Winter"],
+			correctAnswer: 3,
+			selectedAnswer: -1};
+
+		questionList.push(question08);
+
+		var question09 = {
+			question: "When is the best time to grow garlic?",
+			answers: [	"Spring",
+						"Summer",
+						"Fall",
+						"Winter"],
+			correctAnswer: 0,
+			selectedAnswer: -1};
+
+		questionList.push(question09);
+
+		var question10 = {
+			question: "When is the best time to grow pomegranates?",
+			answers: [	"Spring",
+						"Summer",
+						"Fall",
+						"Winter"],
+			correctAnswer: 2,
+			selectedAnswer: -1};
+
+		questionList.push(question10);
+
+		var question11 = {
+			question: "When is the Flower Dance?",
+			answers: [	"Summer 05",
+						"Spring 24",
+						"Fall 21",
+						"Spring 13"],
+			correctAnswer: 1,
+			selectedAnswer: -1};
+
+		questionList.push(question11);
+
+		var question12 = {
+			question: "When does the Stardew Valley Fair occur?",
+			answers: [	"Spring 13",
+						"Summer 28",
+						"Fall 16",
+						"Winter 08"],
+			correctAnswer: 2,
+			selectedAnswer: -1};
+
+		questionList.push(question12);
+
+		var question13 = {
+			question: "Which of these foods will ehance your Mining level?",
+			answers: [	"Eggplant Parmesan",
+						"Cranberry Sauce",
+						"Maple Bar",
+						"All of the above"],
+			correctAnswer: 3,
+			selectedAnswer: -1};
+
+		questionList.push(question13);
+
+		var question14 = {
+			question: "You will gain access to the Quarry upon completion OF what Community Center room?",
+			answers: [	"Crafts Room",
+						"Pantry",
+						"Boiler Room",
+						"Vault"],
+			correctAnswer: 0,
+			selectedAnswer: -1};
+
+		questionList.push(question14);
+
+		var question15 = {
+			question: "What item is not needed for the Artisan Bundle?",
+			answers: [	"Jelly",
+						"Truffle Oil",
+						"Peach",
+						"Melon"],
+			correctAnswer: 3,
+			selectedAnswer: -1};
+
+		questionList.push(question15);
+
+		var question16 = {
+			question: "What item is needed for the Spring Crops Bundle?",
+			answers: [	"Garlic",
+						"Cauliflower",
+						"Kale",
+						"Hops"],
+			correctAnswer: 1,
+			selectedAnswer: -1};
+
+		questionList.push(question16);
+
+		var question17 = {
+			question: "What item is not needed for the Super Meal recipe?",
+			answers: [	"Bok Choy",
+						"Cranberries",
+						"Artichoke",
+						"Common Mushroom"],
+			correctAnswer: 3,
+			selectedAnswer: -1};
+
+		questionList.push(question17);
+
+		var question18 = {
+			question: "What fish do you need for the Fish Taco recipe?",
+			answers: [	"Rainbow Trout",
+						"Tuna",
+						"Salmon",
+						"Halibut"],
+			correctAnswer: 1,
+			selectedAnswer: -1};
+
+		questionList.push(question18);
+
+		var question19 = {
+			question: "Who is the local carpenter?",
+			answers: [	"Clint",
+						"Marnie",
+						"Robin",
+						"Pierre"],
+			correctAnswer: 2,
+			selectedAnswer: -1};
+
+		questionList.push(question19);
+
+		var question20 = {
+			question: "Who runs the Adventurer's Guild?",
+			answers: [	"Shane",
+						"Gus",
+						"Haley",
+						"Marlon"],
+			correctAnswer: 3,
+			selectedAnswer: -1};
+
+		questionList.push(question20);
+
+
+
+
 
 		// CODE TO PUT QUESTIONS IN RANDOM ORDER
 		var addToFinalQuestionList = false;
