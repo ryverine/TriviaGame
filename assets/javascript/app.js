@@ -546,7 +546,7 @@ $(document).ready(function()
 		// CODE TO PUT QUESTIONS IN RANDOM ORDER
 		var addToFinalQuestionList = false;
 
-		while(finalQuestionList.length < questionList.length)
+		while(finalQuestionList.length < 10)
 		{
 			var randomIndex = Math.floor((Math.random() * Math.floor(questionList.length)));
 
