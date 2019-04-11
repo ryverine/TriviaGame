@@ -33,31 +33,28 @@
     </div> 
 
     <div class="row">
-
       <div id="mainDiv">
 
         <div class="row">
-          <div class="col-xs-12">
-            <button id="btn-start" class="btn btn-primary btn-lg">Start</button>
+            <button id="btn-start" class="btn btn-primary btn-lg">Start Quiz</button>
+        </div>
+
+        <div class="row">
+          <div id="timerDiv" class="col-xs-12">
+           <h5>Time Remaining: <span id="secondCount"></span></h5>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-xs-12">
-           <h5>Time Remaining: <span id="timerDiv"></span></h5>
-          </div>
-        </div>
-
-        <div class="row">
-          <div id="innerDiv" class="col-xs-10">
+          <div id="innerDiv" class="col-xs-12">
 
             <div class="row">
-              <h3><div id="questionDiv" class="col-xs-12">
+              <h3><div id="questionDiv" class="col-xs-12 col-md-10">
               </div></h3>
             </div>
 
             <div class="row">
-              <div id="answerDiv" class="col-xs-12">
+              <div id="answerDiv">
                 <button id='btn-answerA' class='btn btn-warning answerButton' value='A'></button><br>
                 <button id='btn-answerB' class='btn btn-warning answerButton' value='B'></button><br>
                 <button id='btn-answerC' class='btn btn-warning answerButton' value='C'></button><br>
@@ -66,7 +63,7 @@
             </div>
 
             <div class="row">
-              <h5><div id="resultsDiv" class="col-xs-12">
+              <h5><div id="resultsDiv" class="col-xs-12 col-md-10">
               </div></h5>
             </div>
 
@@ -74,17 +71,22 @@
       </div>
 
         <div class="row">
-          <div id="restartDiv" class="col-xs-12">
             <button id='btn-restart' class='btn btn-success btn-lg' value='restart'>RESTART</button>
-          </div>
         </div>
 
-      </div>
-    </div> <!-- /row -->
+      </div><!-- /mainDiv -->
+    </div> 
+
+
+    <div class="row">
+      <div class="col-xs-12" id="footerDiv"></div>
+    </div>
+
   </div> <!-- /container -->
 
   <!-- my script -->
   <script type="text/javascript" src="assets/javascript/app.js"></script>
+  <script type="text/javascript" src="assets/javascript/getQuestions.js"></script>
 
 </body>
 </html>

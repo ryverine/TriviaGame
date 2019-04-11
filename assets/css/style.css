@@ -1,64 +1,102 @@
 
+/*
+success green
+bright: #28a745;
+dark: #145222;
+
+danger red
+bright: #dc3545;
+dark: #6c131c;
+
+Primary Blue
+bright: #007bff;
+dark: #003166;
+
+warning yellow
+bright: #ffc107;
+dark: #664d00;
+*/
+
+/*** ELEMENT ***/
+
 body{
-	background-image: url("../images/wallpaper.png");
+
+	/*background-image: url("../images/wallpaper.png");*/
+	/*https://css-tricks.com/perfect-full-page-background-image/*/
+	background: url(../images/wallpaper.png) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	/*background: #007bff;*/
 }
 
+/*** CLASS ***/
 
 .row{
 	margin: 0px;
 }
 
 .resultData{
-	padding: 5px;
+	padding: 10px;
 }
-/******* MAKE THIS MOBILE RESPONSIVE *********/
 
-/*
-success green
-#28a745
-#218850
+.answerButton{
+	background-color: #ffc107; 
+	border: 5px solid #6c131c;
+	margin: 2px;
+	padding: 5px;
+	width: auto;
+	min-width: 100%;
+	color: #6c131c;
+	font-size: 20px;
+	font-weight: bold;
+}
 
-danger red
-#dc3545
-#c82333
+.answerButton:hover{
+	background-color: #ffc107; 
+	border-color: #dc3545;
+	color: #dc3545;
+}
 
-Primary Blue
-#007bff
-#0062cc
-
-warning yellow
-#ffc107
-*/
+/*** ID ***/
 
 #headerDiv{
 	margin: auto;
+}
+
+#footerDiv{
+	margin: auto;
+	min-height: 5vh;
 }
 
 #stardewLogo{
 	margin-top: 20px;
 }
 
-#mainDiv{
-	padding: 5px;
-}
-
 #btn-start{
-	border: 5px solid #007bff;
-	margin: 2px;
-	padding: 5px;
+	background-color: #003166;
+	border: 5px solid #003166;
+	width: 50%;
+	margin: auto;
+	padding: 10px;
 	font-weight: bold;
 }
 
 #btn-start:hover{
-	background-color: #007bff;
-	border-color: #0062cc;
+	background-color: #003166;
+	border-color: #007bff;
 }
 
 #audioButton{
-	background-color: #dc3545; /*danger red*/
-	border: 1px solid #dc3545; /*danger red*/
+	background-color: #dc3545;
+	border: 1px solid #dc3545;
 	margin: 2px;
 	padding: 5px;
+}
+
+#timerDiv{
+	display: none;
 }
 
 #innerDiv{
@@ -66,51 +104,71 @@ warning yellow
 	padding: 10px;
 }
 
-#mainDiv{
-	/*margin-top: 10vh;*/
-	margin: 20px auto 0px auto;
-	min-height: 60vh;
-	min-width: 90vh;
-	background-color: #ffc107; /*warning yellow*/
-	overflow: hidden;
-}
-
-.answerButton{
-	background-color: #ffc107; 
-	border: 5px solid #dc3545;
-	margin: 2px;
-	padding: 5px;
-	font-weight: bold;
-}
-
-.answerButton:hover{
-	background-color: #ffc107; 
-	border-color: #c82333;
-}
-
-#restartDiv{
+#answerDiv{
 	display: none;
+	width: 80%;
 	margin: auto;
 }
 
+#mainDiv{
+	margin: 20px auto 0px auto;
+	padding: 10px;
+	min-height: 60vh;
+	min-width: 60vw;
+	background-color: #ffc107;
+	overflow: hidden;
+}
+
+#resultsDiv{
+	display: none;
+	margin: auto;
+	padding: 10px;
+}
+
 #btn-restart{
-	border: 5px solid #28a745;
-	margin: 2px;
-	padding: 5px;
+	display: none;
+	background-color: #145222;
+	border: 5px solid #145222;
+	width: 50%;
+	margin: auto;
+	padding: 10px;
 	font-weight: bold;
 }
 
 #btn-restart:hover{
-	background-color: #28a745;
-	border-color: #218850;
+	background-color: #145222;
+	border-color: #28a745;
 }
 
 #questionDiv{
+	display: none;
 	margin: auto;
-	padding: 10px;
+	padding: 20px;
+	font-weight: bolder;
 }
 
-#resultsDiv{
-	margin: auto;
-	padding: 10px;
+/*** Media Queries ***/
+
+/*@media screen and (max-width: 980px){}*/
+/*@media screen and (max-width: 640px){}*/
+
+@media screen and (max-width: 768px){
+
+	[class*="col-"] {
+  		width: 100%;
+	}
+
+	.container{
+		padding: 0px;
+	}
+
+	#mainDiv{
+		padding: 10px;
+		min-height: 60vh;
+		width: 100%;
+		overflow: hidden;
+	}
+
 }
+
+
