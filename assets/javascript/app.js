@@ -152,12 +152,17 @@ $(document).ready(function()
 
 			answerDiv.hide();
 
-			resultsDiv.html("<h3>" + "TIME'S UP" + "</h3>");
+			resultsDiv.show();
 
-			resultsDiv.append(	"<br>" + "The correct answer is: " + "<br>" + "<h4>" +
+			resultsDiv.html("<div class='resultHeader'>" + "TIME'S UP" + "</div>");
+
+			resultsDiv.append(	"<div class='resultData'>" + "The correct answer is: " + "<br>" +
+								"<strong>" + 
 								questions[currentQuestion].answers[questions[currentQuestion].correctAnswer] + 
-								"</h4>");
+								"</strong>");
 
+
+			resultsDiv.append("<div>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
 			// put image here?
 
 			currentQuestion++;
@@ -234,6 +239,8 @@ $(document).ready(function()
 		{
 			resultsDiv.text("YOU GOT IT!");
 
+			resultsDiv.append("<div>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
+
 			currentQuestion++;
 
 			setTimeout(getQuestion, 3000);
@@ -244,6 +251,8 @@ $(document).ready(function()
 
 			resultsDiv.append(	"<br>" + "The correct answer is: " + "<br>" +
 								questions[currentQuestion].answers[questions[currentQuestion].correctAnswer]);
+
+			resultsDiv.append("<div>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
 
 			currentQuestion++;
 
@@ -268,7 +277,7 @@ $(document).ready(function()
 
 		for (var i = 0; i < questions.length; i++)
 		{
-			//var qNum = i+1;
+			var qNum = i+1;
 
 			if(questions[i].selectedAnswer === questions[i].correctAnswer)
 			{
@@ -281,21 +290,25 @@ $(document).ready(function()
 
 			if(questions[i].selectedAnswer > -1 )
 			{
-				resultsDiv.append(	"<div class='resultData'>" + "<h5>" + "<strong>" + questions[i].question + "</strong>" + "</h5>" + 
-									"You answered: " + "<strong>" + questions[i].answers[questions[i].selectedAnswer] + "</strong>" + "<br>" + 
-									"Correct answer: " +  "<strong>" + questions[i].answers[questions[i].correctAnswer] + "</strong>" + "</div>");
+				resultsDiv.append(	"<div class='resultDataQuestion'>" + qNum + ". " + questions[i].question + "</div>" + 
+									"<div class='resultData'>" + 
+										"You answered: " + "<strong>" + questions[i].answers[questions[i].selectedAnswer] + "</strong>" + "<br>" + 
+										"Correct answer: " +  "<strong>" + questions[i].answers[questions[i].correctAnswer] + "</strong>" + "</div>");
 			}
 			else
 			{
-				resultsDiv.append(	"<div class='resultData'>" + "<h5>" + "<strong>" + questions[i].question + "</strong>" + "</h5>" + 
-									"<strong>" + "You did not answer." + "</strong>" + "<br>" + 
-									"Correct answer: " +  "<strong>" + questions[i].answers[questions[i].correctAnswer] + "</strong>"  + "</div>");
+				resultsDiv.append(	"<div class='resultDataQuestion'>" + qNum + ". " + questions[i].question + "</div>" + 
+									"<div class='resultData'>" + 
+										"<strong>" + "You did not answer." + "</strong>" + "<br>" + 
+										"Correct answer: " + "<strong>" + questions[i].answers[questions[i].correctAnswer] + "</strong>"  + "</div>");
 			}
 		}
 
-		resultsDiv.append(	"<div class='resultData'>" + "Total Questions: " + total + "<br>" + 
-							"Correct Answers: " + numRight + "<br>" + 
-							"Wrong Answers: " + numWrong + "</div>");
+		resultsDiv.prepend(	"<div class='resultHeader'>" + "Quiz Completed" + "</div>" + 
+							"<div class='resultData'>" + 
+								"Total Questions: " + total + "<br>" + 
+								"Correct Answers: " + numRight + "<br>" + 
+								"Wrong Answers: " + numWrong + "</div>" );
 
 		restartButton.show();
 	}

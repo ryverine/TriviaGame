@@ -3,6 +3,7 @@ function getQuestions()
 	var questionList = [];
 
 	var question01 =  {
+		imgUrl: "assets/images/300.png",
 		question: "When is Salmonberry season?",
 		answers: [	"Fall 8-11",
 					"Spring 15-18",
@@ -14,6 +15,7 @@ function getQuestions()
 	questionList.push(question01);
 
 	var question02 =  {
+		imgUrl: "assets/images/300.png",
 		question: "When is Blackberry season?",
 		answers: [	"Spring 15-18",
 					"Summer 12-14",
@@ -25,6 +27,7 @@ function getQuestions()
 	questionList.push(question02);
 
 	var question03 =  {
+		imgUrl: "assets/images/300.png",
 		question: "Who loves to recieve a Golden Pumpkin as a gift?",
 		answers: [	"Abigail",
 					"Evelyn",
@@ -36,6 +39,7 @@ function getQuestions()
 	questionList.push(question03);
 
 	var question04 =  {
+		imgUrl: "assets/images/300.png",
 		question: "Who will always appreciate a hot mug of joe?",
 		answers: [	"Clint",
 					"Leah",
@@ -47,6 +51,7 @@ function getQuestions()
 	questionList.push(question04);
 
 	var question05 =  {
+		imgUrl: "assets/images/300.png",
 		question: "When is Penny's birthday?",
 		answers: [	"Fall 2",
 					"Summer 10",
@@ -58,6 +63,7 @@ function getQuestions()
 	questionList.push(question05);
 
 	var question06 =  {
+		imgUrl: "assets/images/300.png",
 		question: "When is Sebastian's birthday?",
 		answers: [	"Spring 2",
 					"Summer 10",
@@ -69,6 +75,7 @@ function getQuestions()
 	questionList.push(question06);
 
 	var question07 = {
+		imgUrl: "assets/images/300.png",
 		question: "When is the best time to catch an octopus?",
 		answers: [	"Spring",
 					"Summer",
@@ -80,6 +87,7 @@ function getQuestions()
 	questionList.push(question07);
 
 	var question08 = {
+		imgUrl: "assets/images/300.png",
 		question: "When is the best time to catch a perch?",
 		answers: [	"Spring",
 					"Summer",
@@ -91,6 +99,7 @@ function getQuestions()
 	questionList.push(question08);
 
 	var question09 = {
+		imgUrl: "assets/images/300.png",
 		question: "When is the best time to grow garlic?",
 		answers: [	"Spring",
 					"Summer",
@@ -102,6 +111,7 @@ function getQuestions()
 	questionList.push(question09);
 
 	var question10 = {
+		imgUrl: "assets/images/300.png",
 		question: "When is the best time to grow pomegranates?",
 		answers: [	"Spring",
 					"Summer",
@@ -113,6 +123,7 @@ function getQuestions()
 	questionList.push(question10);
 
 	var question11 = {
+		imgUrl: "assets/images/300.png",
 		question: "When is the Flower Dance?",
 		answers: [	"Summer 5",
 					"Spring 24",
@@ -124,6 +135,7 @@ function getQuestions()
 	questionList.push(question11);
 
 	var question12 = {
+		imgUrl: "assets/images/300.png",
 		question: "When does the Stardew Valley Fair occur?",
 		answers: [	"Spring 13",
 					"Summer 28",
@@ -135,17 +147,19 @@ function getQuestions()
 	questionList.push(question12);
 
 	var question13 = {
-		question: "Which of these foods will ehance your Mining level?",
+		imgUrl: "assets/images/300.png",
+		question: "Which of these foods will not enhance your Mining level?",
 		answers: [	"Eggplant Parmesan",
 					"Cranberry Sauce",
 					"Maple Bar",
-					"All of the above"],
+					"Oil of Garlic"],
 		correctAnswer: 3,
 		selectedAnswer: -1};
 
 	questionList.push(question13);
 
 	var question14 = {
+		imgUrl: "assets/images/300.png",
 		question: "You will gain access to the Quarry upon completion of what Community Center room?",
 		answers: [	"Crafts Room",
 					"Pantry",
@@ -157,6 +171,7 @@ function getQuestions()
 	questionList.push(question14);
 
 	var question15 = {
+		imgUrl: "assets/images/300.png",
 		question: "What item is not needed for the Artisan Bundle?",
 		answers: [	"Jelly",
 					"Truffle Oil",
@@ -168,6 +183,7 @@ function getQuestions()
 	questionList.push(question15);
 
 	var question16 = {
+		imgUrl: "assets/images/300.png",
 		question: "What item is needed for the Spring Crops Bundle?",
 		answers: [	"Garlic",
 					"Cauliflower",
@@ -179,6 +195,7 @@ function getQuestions()
 	questionList.push(question16);
 
 	var question17 = {
+		imgUrl: "assets/images/300.png",
 		question: "What item is not needed for the Super Meal recipe?",
 		answers: [	"Bok Choy",
 					"Cranberries",
@@ -190,6 +207,7 @@ function getQuestions()
 	questionList.push(question17);
 
 	var question18 = {
+		imgUrl: "assets/images/300.png",
 		question: "What fish do you need for the Fish Taco recipe?",
 		answers: [	"Rainbow Trout",
 					"Tuna",
@@ -201,6 +219,7 @@ function getQuestions()
 	questionList.push(question18);
 
 	var question19 = {
+		imgUrl: "assets/images/300.png",
 		question: "Who is the local carpenter?",
 		answers: [	"Clint",
 					"Marnie",
@@ -212,6 +231,7 @@ function getQuestions()
 	questionList.push(question19);
 
 	var question20 = {
+		imgUrl: "assets/images/300.png",
 		question: "Who runs the Adventurer's Guild?",
 		answers: [	"Shane",
 					"Gus",
@@ -222,7 +242,8 @@ function getQuestions()
 
 	questionList.push(question20);
 
-			var question21 =  {
+	var question21 =  {
+		imgUrl: "assets/images/300.png",
 		question: "Whose birthday is on day 27 of Spring?",
 		answers: [	"Willy",
 					"Harvey",
@@ -234,6 +255,7 @@ function getQuestions()
 	questionList.push(question21);
 
 	var question22 =  {
+		imgUrl: "assets/images/300.png",
 		question: "Whose birthday is on day 19 of Summer?",
 		answers: [	"Demetrius",
 					"Lewis",
@@ -245,6 +267,7 @@ function getQuestions()
 	questionList.push(question22);
 
 	var question23 =  {
+		imgUrl: "assets/images/300.png",
 		question: "What festival occurs on day 28 of Summer?",
 		answers: [	"Night Market",
 					"Luau",
@@ -256,6 +279,7 @@ function getQuestions()
 	questionList.push(question23);
 
 	var question24 =  {
+		imgUrl: "assets/images/300.png",
 		question: "What festival occurs on day 8 of Winter?",
 		answers: [	"Night Market",
 					"Festival of Ice",
@@ -267,6 +291,7 @@ function getQuestions()
 	questionList.push(question24);
 
 	var question25 =  {
+		imgUrl: "assets/images/300.png",
 		question: "Who is not a villager?",
 		answers: [	"Wizard",
 					"Dwarf",
@@ -278,6 +303,7 @@ function getQuestions()
 	questionList.push(question25);
 
 	var question26 =  {
+		imgUrl: "assets/images/300.png",
 		question: "What shop does Sandy run?",
 		answers: [	"The Stardrop Saloon",
 					"The Traveling Cart",
@@ -289,6 +315,7 @@ function getQuestions()
 	questionList.push(question26);
 
 	var question27 =  {
+		imgUrl: "assets/images/300.png",
 		question: "What is the recipe for Spicy Eel?",
 		answers: [	"Eel and Oil",
 					"Eel and Hot Pepper",
@@ -300,6 +327,7 @@ function getQuestions()
 	questionList.push(question27);
 
 	var question28 =  {
+		imgUrl: "assets/images/300.png",
 		question: "What is the recipe for Fish Stew?",
 		answers: [	"Crayfish, Mussel, Periwinkle, and Tomato",
 					"Rainbow Trout and Green Algae",
@@ -311,6 +339,7 @@ function getQuestions()
 	questionList.push(question28);
 
 	var question29 =  {
+		imgUrl: "assets/images/300.png",
 		question: "What is needed to craft a wedding ring?",
 		answers: [	"Gold Bar, Iron Bar, and Diamond",
 					"Copper Bar, Refined Quartz, and Earth Crystal",
@@ -322,6 +351,7 @@ function getQuestions()
 	questionList.push(question29);
 
 	var question30 =  {
+		imgUrl: "assets/images/300.png",
 		question: "Where can you catch a Lava Eel?",
 		answers: [	"Mine floor 100",
 					"The Ocean",
