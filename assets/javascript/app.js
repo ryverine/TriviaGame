@@ -154,7 +154,7 @@ $(document).ready(function()
 
 			resultsDiv.show();
 
-			resultsDiv.html("<div class='resultHeader'>" + "TIME'S UP" + "</div>");
+			resultsDiv.html("<div class='resultHeader'>" + "<img src='" + "assets/images/timesUp.png" + "'>" + "</div>");
 
 			resultsDiv.append(	"<div class='resultData'>" + "The correct answer is: " + "<br>" +
 								"<strong>" + 
@@ -162,12 +162,12 @@ $(document).ready(function()
 								"</strong>");
 
 
-			resultsDiv.append("<div id='questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
+			resultsDiv.append("<div id='img-fluid questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
 			// put image here?
 
 			currentQuestion++;
 
-			setTimeout(getQuestion, 3000);
+			setTimeout(getQuestion, 5000);
   		}
   	}
 
@@ -237,26 +237,27 @@ $(document).ready(function()
 
 		if(questions[currentQuestion].selectedAnswer === questions[currentQuestion].correctAnswer)
 		{
-			resultsDiv.text("YOU GOT IT!");
+			
+			resultsDiv.html("<div class='resultHeader'>" + "<img src='" + "assets/images/youGotIt.png" + "'>" + "</div>");
 
-			resultsDiv.append("<div id='questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
+			resultsDiv.append("<div id='img-fluid questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
 
 			currentQuestion++;
 
-			setTimeout(getQuestion, 3000);
+			setTimeout(getQuestion, 5000);
 		}
 		else
 		{
-			resultsDiv.text("YOU DIDN'T GET IT!");
+			resultsDiv.html("<div class='resultHeader'>" + "<img src='" + "assets/images/youDidntGetIt.png" + "'>" + "</div>");
 
-			resultsDiv.append(	"<br>" + "The correct answer is: " + "<br>" +
-								questions[currentQuestion].answers[questions[currentQuestion].correctAnswer]);
+			resultsDiv.append(	"<div>" + "<h3>" + "The correct answer is: " + "<h3>" + "</div>" +
+								"<div>" + "<h1>" + questions[currentQuestion].answers[questions[currentQuestion].correctAnswer] + "</h1>" + "</div");
 
-			resultsDiv.append("<div id='questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
+			resultsDiv.append("<div id='img-fluid questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
 
 			currentQuestion++;
 
-			setTimeout(getQuestion, 3000);
+			setTimeout(getQuestion, 5000);
 		}
 	}
 

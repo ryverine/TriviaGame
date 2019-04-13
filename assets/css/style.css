@@ -31,6 +31,10 @@ body{
 	/*background: #007bff;*/
 }
 
+div{
+	text-align: center;
+}
+
 /*** CLASS ***/
 
 .row{
@@ -172,8 +176,9 @@ body{
 
 
 #questionImg{
+	width: 100%;
 	margin: auto;
-	padding: 10px;
+	padding: 20px;
 }
 
 #footerDiv{
