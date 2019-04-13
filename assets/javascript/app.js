@@ -162,7 +162,7 @@ $(document).ready(function()
 								"</strong>");
 
 
-			resultsDiv.append("<div>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
+			resultsDiv.append("<div id='questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
 			// put image here?
 
 			currentQuestion++;
@@ -239,7 +239,7 @@ $(document).ready(function()
 		{
 			resultsDiv.text("YOU GOT IT!");
 
-			resultsDiv.append("<div>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
+			resultsDiv.append("<div id='questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
 
 			currentQuestion++;
 
@@ -252,7 +252,7 @@ $(document).ready(function()
 			resultsDiv.append(	"<br>" + "The correct answer is: " + "<br>" +
 								questions[currentQuestion].answers[questions[currentQuestion].correctAnswer]);
 
-			resultsDiv.append("<div>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
+			resultsDiv.append("<div id='questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
 
 			currentQuestion++;
 

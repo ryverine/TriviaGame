@@ -169,6 +169,13 @@ body{
 	font-weight: bolder;
 }
 
+
+
+#questionImg{
+	margin: auto;
+	padding: 10px;
+}
+
 #footerDiv{
 	margin: auto;
 	min-height: 5vh;
