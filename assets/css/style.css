@@ -17,6 +17,14 @@ bright: #ffc107;
 dark: #664d00;
 */
 
+
+/*
+
+ALL NORM TEXT SHOULD BE BOOTSTRAP DARK
+
+*/
+
+
 /*** ELEMENT ***/
 
 body{
@@ -59,6 +67,10 @@ div{
 	margin-left: 30px;
 	padding: 10px;
 	font-size: 20px;
+}
+
+.responseText{
+	padding: 20px;
 }
 
 .answerButton{
@@ -177,8 +189,7 @@ div{
 
 #questionImg{
 	width: 100%;
-	margin: auto;
-	padding: 20px;
+	margin: 20px auto 20px auto;
 }
 
 #footerDiv{

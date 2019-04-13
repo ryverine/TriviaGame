@@ -13,6 +13,15 @@
 // https://stardewvalley.fandom.com/wiki/Villager_marriage_candidates
 
 
+
+/**
+ * DO IMAGES LIKE THIS
+ * 		var catImage = $("<img>");
+ * 		catImage.attr("src", imageUrl);
+ * 		catImage.attr("alt", "cat image");
+ * 		$("#images").prepend(catImage);
+ */
+
 $(document).ready(function() 
 {
 	var questions = [];
@@ -156,14 +165,15 @@ $(document).ready(function()
 
 			resultsDiv.html("<div class='resultHeader'>" + "<img src='" + "assets/images/timesUp.png" + "'>" + "</div>");
 
-			resultsDiv.append(	"<div class='resultData'>" + "The correct answer is: " + "<br>" +
-								"<strong>" + 
-								questions[currentQuestion].answers[questions[currentQuestion].correctAnswer] + 
-								"</strong>");
+			var tmpDiv = $("<div>")
+			tmpDiv.attr("class", "responseText");
 
+			resultsDiv.append(	"<div>" + "<h3>" + "The correct answer is: " + "</h3>" + "</div>" +
+								"<div>" + "<h1>" + questions[currentQuestion].answers[questions[currentQuestion].correctAnswer] + "</h1>" + "</div");
+							
+			tmpDiv.append("<div id='img-fluid questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
 
-			resultsDiv.append("<div id='img-fluid questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
-			// put image here?
+			resultsDiv.append(tmpDiv);
 
 			currentQuestion++;
 
@@ -237,10 +247,14 @@ $(document).ready(function()
 
 		if(questions[currentQuestion].selectedAnswer === questions[currentQuestion].correctAnswer)
 		{
-			
 			resultsDiv.html("<div class='resultHeader'>" + "<img src='" + "assets/images/youGotIt.png" + "'>" + "</div>");
 
-			resultsDiv.append("<div id='img-fluid questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
+			var tmpDiv = $("<div>")
+			tmpDiv.attr("class", "responseText");
+
+			tmpDiv.append("<div id='img-fluid questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
+
+			resultsDiv.append(tmpDiv);
 
 			currentQuestion++;
 
@@ -250,10 +264,15 @@ $(document).ready(function()
 		{
 			resultsDiv.html("<div class='resultHeader'>" + "<img src='" + "assets/images/youDidntGetIt.png" + "'>" + "</div>");
 
-			resultsDiv.append(	"<div>" + "<h3>" + "The correct answer is: " + "<h3>" + "</div>" +
+			var tmpDiv = $("<div>")
+			tmpDiv.attr("class", "responseText");
+
+			tmpDiv.html(	"<div>" + "<h3>" + "The correct answer is: " + "<h3>" + "</div>" +
 								"<div>" + "<h1>" + questions[currentQuestion].answers[questions[currentQuestion].correctAnswer] + "</h1>" + "</div");
 
-			resultsDiv.append("<div id='img-fluid questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
+			tmpDiv.append("<div id='img-fluid questionImg'>" + "<img src='" + questions[currentQuestion].imgUrl + "'>" + "</div>");
+
+			resultsDiv.append(tmpDiv);
 
 			currentQuestion++;
 
