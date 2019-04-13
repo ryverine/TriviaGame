@@ -1,29 +1,4 @@
 
-/*
-success green
-bright: #28a745;
-dark: #145222;
-
-danger red
-bright: #dc3545;
-dark: #003166;
-
-Primary Blue
-bright: #007bff;
-dark: #003166;
-
-warning yellow
-bright: #ffc107;
-dark: #664d00;
-*/
-
-
-/*
-
-ALL NORM TEXT SHOULD BE BOOTSTRAP DARK
-
-*/
-
 
 /*** ELEMENT ***/
 
@@ -61,12 +36,14 @@ div{
 	padding: 10px;
 	font-size: 20px;
 	font-weight: bold;
+	text-align: left;
 }
 
 .resultData{
 	margin-left: 30px;
 	padding: 10px;
 	font-size: 20px;
+	text-align: left;
 }
 
 .responseText{
@@ -78,7 +55,8 @@ div{
 	border: 5px solid #dc3545;
 	margin: 2px;
 	padding: 5px;
-	width: auto;
+	width: 100%;
+	height: auto;
 	min-width: 100%;
 	color: #dc3545;
 	font-size: 20px;
@@ -139,11 +117,12 @@ div{
 #innerDiv{
 	margin: auto;
 	padding: 10px;
+	width: 100%;
 }
 
 #answerDiv{
 	display: none;
-	width: 50%;
+	width: 90%;
 	margin: auto;
 }
 
@@ -159,7 +138,7 @@ div{
 #resultsDiv{
 	display: none;
 	margin: auto;
-	width: 80%;
+	width: 100%;
 	padding: 10px;
 }
 
@@ -183,6 +162,7 @@ div{
 	margin: auto;
 	padding: 20px;
 	font-weight: bolder;
+	text-align: center
 }
 
 
@@ -195,12 +175,10 @@ div{
 #footerDiv{
 	margin: auto;
 	min-height: 5vh;
+	padding: 10px;
 }
 
 /*** Media Queries ***/
-
-/*@media screen and (max-width: 980px){}*/
-/*@media screen and (max-width: 640px){}*/
 
 @media screen and (max-width: 768px){
 
