@@ -1,7 +1,7 @@
 
 ![logo](/Documentation/001.png)
 
-# Stardew Valley Trivia Game
+# Stardew Valley Trivia Quiz
 Trivia Game built using JavaScript and jQuery timing functions.
 
 [Deployed App](https://ryverine.github.io/TriviaGame/)
