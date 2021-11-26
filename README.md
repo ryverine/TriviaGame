@@ -1,65 +1,60 @@
-# Trivia Game
+
+![logo](/Documentation/001.png)
+
+# Stardew Valley Trivia Game
 Trivia Game built using JavaScript and jQuery timing functions.
 
-https://www.stardewvalley.net/
-https://stardewvalleywiki.com/Stardew_Valley_Wiki
-https://soundcloud.com/concernedape/spring-the-valley-comes-alive
-https://www.reddit.com/r/StardewValley/comments/b2mvop/stardew_valley_phone_wallpaper/
-https://www.reddit.com/r/StardewValley/comments/7e67r7/looking_for_a_specific_wallpaper/
-https://stardewvalleywiki.com/List_of_All_Gifts
-https://stardewvalleywiki.com/Calendar
+[Deployed App](https://ryverine.github.io/TriviaGame/)
 
-https://www.reddit.com/r/StardewValley/comments/4dtgp7/by_popular_request_a_stardew_valley_font_for_your/
-https://www.dropbox.com/sh/g1law0qmnf6pjwr/AACummg5fZJ5JIF4ReeRDxJia?dl=0
+## Game Events
 
-https://stardewvalley.fandom.com/wiki/Villager_marriage_candidates
+The player will need to answer trivia question about Stardew Valley.
 
-## Game Rules
+There are a total of 30 questions, but each quiz will randomly select 10 questions for the player to answer.
 
+To begin the player will click the `Start Quiz` button.
 
-## Global Variables
+![Question](/Documentation/002.gif)
 
-### var questions = [];
-### var currentQuestion = 0;
-### var questionDiv = $("#questionDiv");
-### var answerDiv = $("#answerDiv");
-### var resultsDiv = $("#resultsDiv");
-### var timerDiv = $("#timerDiv");
-### var secondCountSpan = $("#secondCount");
-### var restartDiv = $("#restartDiv");
-### var intervalId;
-### var timerRunning = false;
-### var secondCounter = 10;
+A question and a set of multiple choice answers will be displayed for 10 seconds. The player must select an answer to the question in those 10 seconds. 
 
-## Event Handlers
+![Question](/Documentation/003.png)
 
-### $("#btn-start").on("click", function() 
-### $("#btn-answerA").on("click", function() 
-### $("#btn-answerB").on("click", function() 
-### $("#btn-answerC").on("click", function() 
-### $("#btn-answerD").on("click", function() 
-### $("#btn-restart").on("click", function() 
+Once the player has answered or the timer reaches the 10 second mark the player will be moved to the next question. 
 
-## Objects
+When the player answers the question they will recieve a screen that tells them the answer was correct or incorrect. 
 
-	var question05 =  {
-		question: "When is Penny's birthday?",
-		answers: [	"Fall 02",
-					"Summer 10",
-					"Winter 23",
-					"Fall 05"],
-		correctAnswer: 0,
-		selectedAnswer: -1};
+![Question response](/Documentation/004.png)
 
-## Functions
+After all questions have been presented the player will be presented with a list of all the questions, their answer to each question, and the correct answer for each question.
 
-### function stopTimer() 
-### function startTimer()
-### function countTime() 
-### function getQuestion()
-### function logAnswer(theAnswer)
-### function gradeQuiz()
-### function loadQuestions()
+![Completion screen](/Documentation/005.png)
+
+On the completion screen the player will have a `Restart` button.
+
+![Restart](/Documentation/006.gif)
+
+## Resources
+
+[https://www.stardewvalley.net/](https://www.stardewvalley.net/)
+
+[https://stardewvalleywiki.com/Stardew_Valley_Wiki](https://stardewvalleywiki.com/Stardew_Valley_Wiki)
+
+[https://soundcloud.com/concernedape/spring-the-valley-comes-alive](https://soundcloud.com/concernedape/spring-the-valley-comes-alive)
+
+[https://www.reddit.com/r/StardewValley/comments/b2mvop/stardew_valley_phone_wallpaper/](https://www.reddit.com/r/StardewValley/comments/b2mvop/stardew_valley_phone_wallpaper/)
+
+[https://www.reddit.com/r/StardewValley/comments/7e67r7/looking_for_a_specific_wallpaper/](https://www.reddit.com/r/StardewValley/comments/7e67r7/looking_for_a_specific_wallpaper/)
+
+[https://stardewvalleywiki.com/List_of_All_Gifts](https://stardewvalleywiki.com/List_of_All_Gifts)
+
+[https://stardewvalleywiki.com/Calendar](https://stardewvalleywiki.com/Calendar)
+
+[https://www.reddit.com/r/StardewValley/comments/4dtgp7/by_popular_request_a_stardew_valley_font_for_your/](https://www.reddit.com/r/StardewValley/comments/4dtgp7/by_popular_request_a_stardew_valley_font_for_your/)
+
+[https://www.dropbox.com/sh/g1law0qmnf6pjwr/AACummg5fZJ5JIF4ReeRDxJia?dl=0](https://www.dropbox.com/sh/g1law0qmnf6pjwr/AACummg5fZJ5JIF4ReeRDxJia?dl=0)
+
+[https://stardewvalley.fandom.com/wiki/Villager_marriage_candidates](https://stardewvalley.fandom.com/wiki/Villager_marriage_candidates)
 
 
 
